@@ -97,13 +97,4 @@ Import into the new created keyStore the key from the p12 file (refer to the att
 -srckeystore /home/oc01/tmp_certificato/LDAP_GFT.p12 
 -srcstoretype PKCS12 -destkeystore adeo_ldap.jks -deststoretype JKS
 
-Tomcat configuration:
-Add the following parameters to the  JVM parameters to configure the trustStore and the keyStore
--Djavax.net.ssl.keyStore=/opt/certificatiLDAP/adeo_ldap.jks -Djavax.net.ssl.keyStorePassword=dRZLMvMQkFyi -Djavax.net.ssl.trustStore=/opt/java/jre/lib/security/cacerts -Djavax.net.ssl.trustStorePassword=changeit
-
-Add to the Tomcat server configuration (server.xml) the LDAP realm:
-<Realm className="org.apache.catalina.realm.JNDIRealm"
-                                connectionURL="ldaps://ypadeoldap.corp.leroymerlin.com:636"
-                                userBase="ou=people,ou=IT-BC,o=corp.leroymerlin.com"
-                                userSearch="(uid={0})" />
 
